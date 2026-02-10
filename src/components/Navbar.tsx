@@ -8,7 +8,7 @@ export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
-        <nav className="fixed top-0 w-full h-20 z-50 px-6 md:px-16 py-6 bg-black/40 backdrop-blur-md border-b border-white/10 flex justify-between items-center">
+        <nav className="fixed top-0 w-full h-18 z-50 px-6 md:px-16 py-6 bg-black/40 backdrop-blur-md border-b border-white/10 flex justify-between items-center">
 
             {/* Logo Area */}
             <Link href="/" className="flex items-center gap-4 group z-50">
