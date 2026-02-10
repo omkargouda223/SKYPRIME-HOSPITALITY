@@ -65,7 +65,7 @@ const services = [
 
 export default function ServicesPage() {
     const handleBooking = (serviceName: string) => {
-        const phone = "919999999999";
+        const phone = "918431234402";
         const message = `Hello Skyprime, I am interested in booking *${serviceName}*. Please provide more details.`;
         const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
         window.open(url, "_blank");
