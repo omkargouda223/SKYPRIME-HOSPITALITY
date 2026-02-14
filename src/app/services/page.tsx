@@ -3,14 +3,15 @@ import React from "react";
 import Navbar from "@/components/Navbar";
 import { motion } from "framer-motion";
 import { Check, Plane, Car, Coffee, Bed } from "lucide-react";
+// 1. Import useRouter for navigation
+import { useRouter } from "next/navigation";
 
 const services = [
     {
         title: "Meet & Greet Services",
         icon: <Plane className="w-8 h-8 text-yellow-400" />,
         description: "Enjoy a smooth airport journey with personalized assistance from arrival to departure.",
-        // UPDATED: Used your new greeting/handshake image
-        image: "/pexels-sora-shimazaki-5668451.jpg",
+        image: "/MeetandGreet.png",
         features: [
             "Warm welcome by trained staff",
             "Fast-track immigration support",
@@ -23,8 +24,7 @@ const services = [
         title: "Limousine Transfers",
         icon: <Car className="w-8 h-8 text-blue-400" />,
         description: "Travel in comfort and style with premium chauffeur-driven vehicles.",
-        // UPDATED: Used your new white Limousine image
-        image: "/pexels-thekameragrapher-33535299.jpg",
+        image: "/Limosien.png",
         features: [
             "Luxury sedans & SUVs",
             "Uniformed chauffeurs",
@@ -37,8 +37,7 @@ const services = [
         title: "Airport Lounge Access",
         icon: <Coffee className="w-8 h-8 text-emerald-400" />,
         description: "Relax, refresh, and recharge before your flight in exclusive airport lounges.",
-        // UPDATED: Used your new lounge/terminal view image
-        image: "/pexels-hellojoshwithers-16739115.jpg",
+        image: "/Loung.png",
         features: [
             "Food & Beverages included",
             "Shower facilities (select)",
@@ -51,8 +50,7 @@ const services = [
         title: "Airport Transit Hotels",
         icon: <Bed className="w-8 h-8 text-purple-400" />,
         description: "Rest and rejuvenate during long transits without leaving the airport.",
-        // UPDATED: Used your new resort/pool image for relaxation
-        image: "/pexels-grbr-snts-323519936-33881123.jpg",
+        image: "/Transit.png",
         features: [
             "Hourly or short-stay bookings",
             "Private bathrooms & beds",
@@ -64,11 +62,12 @@ const services = [
 ];
 
 export default function ServicesPage() {
+    // 2. Initialize Router
+    const router = useRouter();
+
     const handleBooking = (serviceName: string) => {
-        const phone = "918431234402";
-        const message = `Hello Skyprime, I am interested in booking *${serviceName}*. Please provide more details.`;
-        const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-        window.open(url, "_blank");
+        // 3. Redirect to the booking page with the service name attached
+        router.push(`/booking?service=${encodeURIComponent(serviceName)}`);
     };
 
     return (
@@ -97,7 +96,7 @@ export default function ServicesPage() {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: index * 0.1 }}
                             whileHover={{ y: -10 }}
-                            // UPDATED: Changed h-[480px] to min-h-[600px] so it expands on mobile
+                            // Used min-h-[600px] so it expands on mobile
                             className="group relative min-h-[600px] md:h-[550px] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl flex flex-col"
                         >
                             {/* BACKGROUND IMAGE */}
